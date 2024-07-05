@@ -11,10 +11,9 @@ import SwiftUI
 struct RickAndMortyApp: App {
     let persistenceController = PersistenceController.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-
     var body: some Scene {
         WindowGroup {
-            CharacterView()
+            LoginView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -11,5 +11,6 @@ class DependencyContainerRegister {
     static func registerDependencies() {
         DependencyContainer.register(NetworkManager())
         DependencyContainer.register(CharacterRepository())
+        DependencyContainer.register(AuthManager())
     }
 }
