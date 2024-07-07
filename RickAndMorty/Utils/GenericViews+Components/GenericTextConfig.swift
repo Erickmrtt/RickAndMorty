@@ -15,12 +15,14 @@ struct GenericTextConfig: ViewModifier {
     var paddingTop: CGFloat? = 0
     var paddingLeading: CGFloat? = 0
     var paddingBottom: CGFloat? = 0
+    var fontWeight: Font.Weight? = .regular
     var paddingTrailing: CGFloat? = 0
     var textAlignment: TextAlignment? = .leading
 
     func body(content: Content) -> some View {
         content
             .foregroundColor(color)
+            .fontWeight(fontWeight)
             .font(Font.custom(customFont, size: fontSize))
             .accessibility(label: Text(accessibilityText ?? ""))
             .padding(EdgeInsets(top: paddingTop ?? 0, leading: paddingLeading ?? 0 , bottom: paddingBottom ?? 0, trailing: paddingTrailing ?? 0))

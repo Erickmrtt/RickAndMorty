@@ -6,3 +6,11 @@
   
 */
 "smgWrong" = "Something wen't wrong";
+"passwordEmailWrongMsg" = "Incorret password or email";
+"txtFieldEmail" = "Email Address";
+"txtFieldEmailPlaceholder" = "email@example.com";
+"txtFieldPasswordPlaceholder" = "Enter your password";
+"txtFieldPassword" = "Password";
+"btnSignIn" = "Sign In";
+"btnSignUp" = "Don't have an account? Sign up";
+"logoImage" = "logo";

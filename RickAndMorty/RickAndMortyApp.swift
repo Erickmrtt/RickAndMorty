@@ -11,9 +11,11 @@ import SwiftUI
 struct RickAndMortyApp: App {
     let persistenceController = PersistenceController.shared
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @StateObject var networkMonitor = NetworkMonitor()
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .environmentObject(networkMonitor)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

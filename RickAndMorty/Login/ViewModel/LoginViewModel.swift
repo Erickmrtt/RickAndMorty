@@ -12,6 +12,8 @@ class LoginViewModel: ObservableObject {
     @Published var userEmail = ""
     @Published var userPassword = ""
     @Published var formIsInvalid = false
+    @Published var isLoginSuccess = false
+    @Published var showErrorMessage = false
     @Dependency var authManager: AuthManager
     private var cancellables = Set<AnyCancellable>()
     init() {
@@ -44,15 +46,11 @@ class LoginViewModel: ObservableObject {
             }
             .eraseToAnyPublisher()
     }
-
+    @MainActor
     func loginValidation() async throws -> Bool {
-        do {
-            try await authManager.login(email: userEmail, password: userPassword)
-            authManager.configureAuthStateChanges()
-                return authManager.signedIn
-        } catch {
-            return authManager.signedIn
-        }
-
+        let login = try await authManager.login(email: userEmail, password: userPassword)
+        isLoginSuccess = (login == .signedIn)
+        showErrorMessage = (login != .signedIn)
+        return isLoginSuccess
     }
 }

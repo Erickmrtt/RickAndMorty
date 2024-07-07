@@ -52,16 +52,16 @@ class AuthManager: ObservableObject {
         }
     }
 
-    func login(email: String?, password: String?) async throws {
+    func login(email: String?, password: String?) async throws -> AuthState{
         guard let email = email, let password = password else {
-            return
+            return .signedOut
         }
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
-
+            return .signedIn
         } catch {
-            print("Error: \(error.localizedDescription)")
+            return .signedOut
         }
     }
 
