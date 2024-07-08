@@ -14,3 +14,5 @@
 "btnSignIn" = "Sign In";
 "btnSignUp" = "Don't have an account? Sign up";
 "logoImage" = "logo";
+"noInternetConnection" = "No internet connection";
+"noWifiImg" = "wifi.slash";
